@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework.response import Response
-from .models import User
+from .models import UserModel
 class UserSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField()
@@ -10,7 +10,4 @@ class UserSerializer(serializers.Serializer):
     password = serializers.CharField()
 
     def create(self, validate_data):
-        
-
-
-        return User.objects.create(**validate_data)
+        return UserModel.objects.create(**validate_data)
